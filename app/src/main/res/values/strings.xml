@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">GPA_bashiruu1_Calculator</string>
+    <string name="calculate_button">Calculate GPA</string>
+    <string name="prompt">Enter a grade</string>
+
 </resources>

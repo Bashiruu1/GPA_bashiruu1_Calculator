@@ -3,4 +3,9 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="backGround">#ddafcf</color>
+    <color name="bad_grade">#FF0000</color>
+    <color name="good_grade">#00FF00</color>
+    <color name="okay_grade">#FFFF00</color>
 </resources>

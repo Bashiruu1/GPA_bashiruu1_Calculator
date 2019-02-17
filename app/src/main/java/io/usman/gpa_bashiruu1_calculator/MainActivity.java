@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     ConstraintLayout constraintLayout;
@@ -37,20 +38,25 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener buttonListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int grade1 = Integer.parseInt(editText1.getText().toString());
-                int grade2 = Integer.parseInt(editText2.getText().toString());
-                int grade3 = Integer.parseInt(editText3.getText().toString());
-                int grade4 = Integer.parseInt(editText4.getText().toString());
-                int grade5 = Integer.parseInt(editText5.getText().toString());
+                try {
+                    int grade1 = Integer.parseInt(editText1.getText().toString());
+                    int grade2 = Integer.parseInt(editText2.getText().toString());
+                    int grade3 = Integer.parseInt(editText3.getText().toString());
+                    int grade4 = Integer.parseInt(editText4.getText().toString());
+                    int grade5 = Integer.parseInt(editText5.getText().toString());
 
-                int score = grader.computerGrade(grade1, grade2, grade3, grade4, grade5);
+                    int score = grader.computerGrade(grade1, grade2, grade3, grade4, grade5);
 
-                if (score < 60) {
-                    constraintLayout.setBackgroundColor(Color.RED);
-                } else if (score < 80 && score >= 60) {
-                    constraintLayout.setBackgroundColor(Color.YELLOW);
-                } else {
-                    constraintLayout.setBackgroundColor(Color.GREEN);
+                    if (score < 60) {
+                        constraintLayout.setBackgroundColor(Color.RED);
+                    } else if (score < 80 && score >= 60) {
+                        constraintLayout.setBackgroundColor(Color.YELLOW);
+                    } else {
+                        constraintLayout.setBackgroundColor(Color.GREEN);
+                    }
+                } catch (IllegalArgumentException e) {
+                    //Ensures the app does no crash if missing 1 or more input from user
+                    Toast.makeText(getApplicationContext(), e.getMessage()+"Please Enter 5 Integers", Toast.LENGTH_LONG).show();
                 }
             }
         };

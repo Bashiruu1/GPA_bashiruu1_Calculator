@@ -13,6 +13,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     ConstraintLayout constraintLayout;
     Grader grader;
+    
     //Declare view variables
     EditText editText1, editText2, editText3, editText4, editText5;
     TextView textView2;
@@ -46,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
                     int grade5 = Integer.parseInt(editText5.getText().toString());
 
                     int score = grader.computerGrade(grade1, grade2, grade3, grade4, grade5);
+
+                    //Sets the text of textView2 to result string recourse + score and makes the textColor transparent
+                    textView2.setText(getString(R.string.result) + score);
+                    calculateButton.setTextColor(Color.alpha(0));
 
                     if (score < 60) {
                         constraintLayout.setBackgroundColor(Color.RED);
